@@ -20,19 +20,26 @@ upon have been set.
 
 You can start hyperledger-bot locally by running:
 
+    % export WELCOME_MESSAGE="blah blah"
     % bin/hubot
 
 You'll see some start up output and a prompt:
 
-    [Sat Feb 28 2015 12:38:27 GMT+0000 (GMT)] INFO Using default redis on localhost:6379
+    [Wed Mar 07 2018 16:18:53 GMT-0700 (MST)] INFO Welcome script is running, will send:
+    [Wed Mar 07 2018 16:18:53 GMT-0700 (MST)] INFO "Hi"
+    [Wed Mar 07 2018 16:18:53 GMT-0700 (MST)] INFO Using default redis on localhost:6379
     hyperledger-bot>
 
 Then you can interact with hyperledger-bot by typing `hyperledger-bot help`.
 
     hyperledger-bot> hyperledger-bot help
-    hyperledger-bot animate me <query> - The same thing as `image me`, except adds [snip]
-    hyperledger-bot help - Displays all of the help commands that hyperledger-bot knows about.
-    ...
+    hyperledger-bot adapter - Reply with the adapter
+    hyperledger-bot echo <text> - Reply back with <text>
+    hyperledger-bot help - Displays all of the help commands that this bot knows about.
+    hyperledger-bot help <query> - Displays all help commands that match <query>.
+    hyperledger-bot ping - Reply with pong
+    hyperledger-bot say welcome - Repeats the bot's welcome message
+    hyperledger-bot time - Reply with current time
 
 ### Configuration
 
@@ -142,18 +149,8 @@ as Campfire or IRC. There are a number of third party adapters that the
 community have contributed. Check [Hubot Adapters][hubot-adapters] for the
 available ones.
 
-If you would like to run a non-Campfire or shell adapter you will need to add
-the adapter package as a dependency to the `package.json` file in the
-`dependencies` section.
+We are using the Rocket.Chat adapter: https://github.com/RocketChat/hubot-rocketchat.
 
-Once you've added the dependency with `npm install --save` to install it you
-can then run hubot with the adapter.
-
-    % bin/hubot -a <adapter>
-
-Where `<adapter>` is the name of your adapter without the `hubot-` prefix.
-
-[hubot-adapters]: https://github.com/github/hubot/blob/master/docs/adapters.md
 
 ## Deployment
 
@@ -183,30 +180,20 @@ hubot onto Windows][deploy-windows] wiki pages.
 [deploy-unix]: https://github.com/github/hubot/blob/master/docs/deploying/unix.md
 [deploy-windows]: https://github.com/github/hubot/blob/master/docs/deploying/windows.md
 
-## Campfire Variables
+## Rocket.Chat Variables
 
-If you are using the Campfire adapter you will need to set some environment
-variables. If not, refer to your adapter documentation for how to configure it,
-links to the adapters can be found on [Hubot Adapters][hubot-adapters].
+There are a number of variables that we use :
 
-Create a separate Campfire user for your bot and get their token from the web
-UI.
-
-    % heroku config:add HUBOT_CAMPFIRE_TOKEN="..."
-
-Get the numeric IDs of the rooms you want the bot to join, comma delimited. If
-you want the bot to connect to `https://mysubdomain.campfirenow.com/room/42`
-and `https://mysubdomain.campfirenow.com/room/1024` then you'd add it like
-this:
-
-    % heroku config:add HUBOT_CAMPFIRE_ROOMS="42,1024"
-
-Add the subdomain hubot should connect to. If you web URL looks like
-`http://mysubdomain.campfirenow.com` then you'd add it like this:
-
-    % heroku config:add HUBOT_CAMPFIRE_ACCOUNT="mysubdomain"
-
-[hubot-adapters]: https://github.com/github/hubot/blob/master/docs/adapters.md
+| Variable               | Value                          |
+|------------------------|--------------------------------|
+| `ROCKETCHAT_AUTH`      | `password`                     |
+| `ROCKETCHAT_PASSWORD`  |                                |
+| `ROCKETCHAT_ROOM`      | `GENERAL`                      |
+| `ROCKETCHAT_URL`       | `https://chat.hyperledger.org` |
+| `ROCKETCHAT_USER`      | `hyperledger-bot`              |
+| `LISTEN_ON_ALL_PUBLIC` | `false`                        |
+| `RESPOND_TO_DM`        | `true`                         |
+| `HUBOT_LOG_LEVEL`      | `debug`                        |
 
 ## Restart the bot
 
