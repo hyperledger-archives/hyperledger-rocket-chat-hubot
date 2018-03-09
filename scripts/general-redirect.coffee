@@ -16,7 +16,8 @@ fabricQuestionsRegEx = [
   /stub.getQueryResult/i,
   /fabric questions/i,
   /hyperledger fabric/i,
-  /fabric-ca/i
+  /fabric-ca/i,
+  /crypto-config.yaml/i
 ]
 
 sawtoothRegEx = [
@@ -48,6 +49,26 @@ burrowRegEx = [
   /[^#]burrow/i
 ]
 
+experts = [
+  "tkuhrt",
+  "Dan",
+  "ry",
+  "yacovm",
+  "zac",
+  "nickgaski",
+  "mastersingh24",
+  "cbf",
+  "lehors",
+  "jsmitchell",
+  "amundson"
+]
+
+# Which rooms should I respond in. Shell is for testing from command line.
+rooms = [
+  "Shell",
+  "general"
+]
+
 module.exports = (robot) ->
   robot.logger.info "Redirect script is running"
 
@@ -56,10 +77,19 @@ module.exports = (robot) ->
     res.reply "Please redirect your question to ##{channel}"
     robot.logger.info "*** Redirected to #{channel} ***"
 
+  # should the bot respond? returns true/false
+  #  - Must be in one of the rooms specified
+  #  - Must not be an expert (unless they are testing hubot)
+  #  - Message must match one of the regular expressions
+  respondTo = (msg, regEx) ->
+    msg.room in rooms and
+    (msg.user.name not in experts or /test/i.test(msg)) and
+    regEx.some((rx) -> rx.test(msg))
+
   # Handle #fabric-questions
   robot.listen(
     (message) -> # Add regular expressions for #fabric-questions above
-      message.room is "general" and fabricQuestionsRegEx.some((rx) -> rx.test(message))
+      respondTo(message, fabricQuestionsRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "fabric-questions"
   )
@@ -67,7 +97,7 @@ module.exports = (robot) ->
   # Handle #sawtooth
   robot.listen(
     (message) -> # Add regular expressions for #sawtooth above
-      message.room is "general" and sawtoothRegEx.some((rx) -> rx.test(message))
+      respondTo(message, sawtoothRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "sawtooth"
   )
@@ -75,7 +105,7 @@ module.exports = (robot) ->
   # Handle #sawtooth-seth
   robot.listen(
     (message) -> # Add regular expressions for #sawtooth above
-      message.room is "general" and sawtoothSethRegEx.some((rx) -> rx.test(message))
+      respondTo(message, sawtoothSethRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "sawtooth-seth"
   )
@@ -83,7 +113,7 @@ module.exports = (robot) ->
   # Handle #composer
   robot.listen(
     (message) -> # Add regular expressions for #composer above
-      message.room is "general" and composerRegEx.some((rx) -> rx.test(message))
+      respondTo(message, composerRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "composer"
   )
@@ -91,7 +121,7 @@ module.exports = (robot) ->
   # Handle #iroha
   robot.listen(
     (message) -> # Add regular expressions for #iroha above
-      message.room is "general" and irohaRegEx.some((rx) -> rx.test(message))
+      respondTo(message, irohaRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "iroha"
   )
@@ -99,7 +129,7 @@ module.exports = (robot) ->
   # Handle #burrow
   robot.listen(
     (message) -> # Add regular expressions for #burrow above
-      message.room is "general" and burrowRegEx.some((rx) -> rx.test(message))
+      respondTo(message, burrowRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "burrow"
   )
