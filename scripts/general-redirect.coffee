@@ -1,5 +1,22 @@
 # Will send redirect users to a channel based on what it hears.
 
+burrowRegEx = [
+  /[^#]burrow/i
+]
+
+caliperRegEx = [
+  /[^#]caliper/i
+]
+
+composerRegEx = [
+  /createPeerAdminCard/i,
+  /getAssetRegistry/i,
+  /getParticipantRegistry/i,
+  /business network archive/i,
+  /bna/i,
+  /[^#]composer/i
+]
+
 fabricQuestionsRegEx = [
   /byfn/i,
   /orderer/i,
@@ -20,6 +37,10 @@ fabricQuestionsRegEx = [
   /crypto-config.yaml/i
 ]
 
+irohaRegEx = [
+  /[^#]iroha/i
+]
+
 sawtoothRegEx = [
   /[^#]sawtooth/i,
   /poet/i,
@@ -30,23 +51,6 @@ sawtoothRegEx = [
 
 sawtoothSethRegEx = [
   /seth/i
-]
-
-composerRegEx = [
-  /createPeerAdminCard/i,
-  /getAssetRegistry/i,
-  /getParticipantRegistry/i,
-  /business network archive/i,
-  /bna/i,
-  /[^#]composer/i
-]
-
-irohaRegEx = [
-  /[^#]iroha/i
-]
-
-burrowRegEx = [
-  /[^#]burrow/i
 ]
 
 experts = [
@@ -108,6 +112,14 @@ module.exports = (robot) ->
       respondTo(message, sawtoothSethRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "sawtooth-seth"
+  )
+
+  # Handle #caliper
+  robot.listen(
+    (message) -> # Add regular expressions for #caliper above
+      respondTo(message, caliperRegEx)
+    (response) -> # Standard listener callback
+      redirectTo response, "caliper"
   )
 
   # Handle #composer
