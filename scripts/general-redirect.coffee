@@ -8,6 +8,10 @@ caliperRegEx = [
   /[^#]caliper/i
 ]
 
+celloRegEx = [
+  /[^#]cello/i
+]
+
 composerRegEx = [
   /createPeerAdminCard/i,
   /getAssetRegistry/i,
@@ -112,6 +116,14 @@ module.exports = (robot) ->
       respondTo(message, sawtoothSethRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "sawtooth-seth"
+  )
+
+  # Handle #cello
+  robot.listen(
+    (message) -> # Add regular expressions for #cello above
+      respondTo(message, celloRegEx)
+    (response) -> # Standard listener callback
+      redirectTo response, "cello"
   )
 
   # Handle #caliper
