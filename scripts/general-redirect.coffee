@@ -17,7 +17,8 @@ fabricQuestionsRegEx = [
   /fabric questions/i,
   /hyperledger fabric/i,
   /fabric-ca/i,
-  /crypto-config.yaml/i
+  /crypto-config.yaml/i,
+  /HLF/i
 ]
 
 sawtoothRegEx = [
@@ -49,6 +50,10 @@ burrowRegEx = [
   /[^#]burrow/i
 ]
 
+indyRegEx = [
+  /[^#]indy/i
+]
+
 experts = [
   "tkuhrt",
   "Dan",
@@ -60,7 +65,8 @@ experts = [
   "cbf",
   "lehors",
   "jsmitchell",
-  "amundson"
+  "amundson",
+  "xcr"
 ]
 
 # Which rooms should I respond in. Shell is for testing from command line.
@@ -132,4 +138,12 @@ module.exports = (robot) ->
       respondTo(message, burrowRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "burrow"
+  )
+
+  # Handle #indy
+  robot.listen(
+    (message) -> # Add regular expressions for #indy above
+      respondTo(message, indyRegEx)
+    (response) -> # Standard listener callback
+      redirectTo response, "indy"
   )
