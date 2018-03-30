@@ -31,7 +31,7 @@ fabricQuestionsRegEx = [
   /crypto-config.yaml/i,
   /endorsement/i,
   /endorser/i,
-  /fabric/i,
+  /[^#]fabric/i,
   /fabric questions/i,
   /fabric-ca/i,
   /fabric-samples/i,
