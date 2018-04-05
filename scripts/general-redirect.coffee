@@ -13,32 +13,33 @@ celloRegEx = [
 ]
 
 composerRegEx = [
+  /bna/i,
+  /business network archive/i,
+  /[^#]composer/i,
   /createPeerAdminCard/i,
   /getAssetRegistry/i,
-  /getParticipantRegistry/i,
-  /business network archive/i,
-  /bna/i,
-  /[^#]composer/i
+  /getParticipantRegistry/i
 ]
 
 fabricQuestionsRegEx = [
   /byfn/i,
+  /chaincode/i,
+  /configtx/i,
+  /configtxgen/i,
+  /core.yaml/i,
+  /create_channel.sh/i,
+  /crypto-config.yaml/i,
+  /endorsement/i,
+  /endorser/i,
+  /[^#]fabric/i,
+  /fabric questions/i,
+  /fabric-ca/i,
+  /fabric-samples/i,
+  /hyperledger fabric/i,
+  /msp/i,
   /orderer/i,
   /ordering service/i,
-  /fabric-samples/i,
-  /configtx/i,
-  /chaincode/i,
-  /endorser/i,
-  /endorsement/i,
-  /configtxgen/i,
-  /msp/i,
-  /create_channel.sh/i,
-  /core.yaml/i,
   /stub.getQueryResult/i,
-  /fabric questions/i,
-  /hyperledger fabric/i,
-  /fabric-ca/i,
-  /crypto-config.yaml/i,
   /HLF/i
 ]
 
@@ -51,8 +52,8 @@ irohaRegEx = [
 ]
 
 sawtoothRegEx = [
-  /[^#]sawtooth/i,
   /poet/i,
+  /[^#]sawtooth/i,
   /transaction processor/i,
   /transaction family/i,
   /validator.toml/i
