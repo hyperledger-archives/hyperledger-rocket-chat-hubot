@@ -12,6 +12,10 @@ celloRegEx = [
   /[^#]cello/i
 ]
 
+ciPipelineRegEx = [
+  /jenkins/i
+]
+
 composerRegEx = [
   /bna/i,
   /business network archive/i,
@@ -64,18 +68,18 @@ sawtoothSethRegEx = [
 ]
 
 experts = [
-  "tkuhrt",
-  "Dan",
-  "ry",
-  "yacovm",
-  "zac",
-  "nickgaski",
-  "mastersingh24",
-  "cbf",
-  "lehors",
-  "jsmitchell",
   "amundson",
-  "xcr"
+  "cbf",
+  "Dan",
+  "jsmitchell",
+  "lehors",
+  "mastersingh24",
+  "nickgaski",
+  "ry",
+  "tkuhrt",
+  "xcr",
+  "yacovm",
+  "zac"
 ]
 
 # Which rooms should I respond in. Shell is for testing from command line.
@@ -139,6 +143,14 @@ module.exports = (robot) ->
       respondTo(message, caliperRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "caliper"
+  )
+
+  # Handle #ci-pipeline
+  robot.listen(
+    (message) -> # Add regular expressions for #ci-pipeline above
+      respondTo(message, ciPipelineRegEx)
+    (response) -> # Standard listener callback
+      redirectTo response, "ci-pipeline"
   )
 
   # Handle #composer
