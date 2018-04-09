@@ -102,7 +102,7 @@ module.exports = (robot) ->
   #  - Message must match one of the regular expressions
   respondTo = (msg, regEx) ->
     msg.room in rooms and
-    (msg.user.name not in experts or /test/i.test(msg)) and
+    (msg.user.name not in experts or /TEST HUBOT/.test(msg)) and
     regEx.some((rx) -> rx.test(msg))
 
   # Handle #fabric-questions
