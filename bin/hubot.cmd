@@ -1,3 +1,7 @@
+rem
+rem SPDX-License-Identifier: Apache-2.0
+rem
+
 @echo off
 
 call npm install
