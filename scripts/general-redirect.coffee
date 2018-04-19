@@ -71,6 +71,7 @@ experts = [
   "amundson",
   "cbf",
   "Dan",
+  "jrosmith",
   "jsmitchell",
   "lehors",
   "mastersingh24",
