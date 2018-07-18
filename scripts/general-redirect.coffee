@@ -77,6 +77,7 @@ experts = [
   "mastersingh24",
   "nickgaski",
   "ry",
+  "ry-test",
   "tkuhrt",
   "xcr",
   "yacovm",
