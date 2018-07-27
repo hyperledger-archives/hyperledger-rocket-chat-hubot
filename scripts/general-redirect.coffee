@@ -1,4 +1,4 @@
-# Will send redirect users to a channel based on what it hears.
+# Will send redirect users to a channel based on what it hears. //BRIAN TEST CHANGE
 
 burrowRegEx = [
   /[^#]burrow/i
