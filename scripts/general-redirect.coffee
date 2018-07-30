@@ -94,7 +94,7 @@ module.exports = (robot) ->
 
   # redirect user to the specified channel
   redirectTo = (res, channel) ->
-    res.reply "Please redirect your question to ##{channel}"
+    res.reply "Please redirect your question to chat channel ##{channel}"
     robot.logger.info "*** Redirected to #{channel} ***"
 
   # should the bot respond? returns true/false
