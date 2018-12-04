@@ -74,6 +74,7 @@ experts = [
   "dave.enyeart",
   "jrosmith",
   "jsmitchell",
+  "kdenhartog",
   "lehors",
   "mastersingh24",
   "nickgaski",
