@@ -74,6 +74,7 @@ experts = [
   "dave.enyeart",
   "jrosmith",
   "jsmitchell",
+  "kdenhartog",
   "lehors",
   "mastersingh24",
   "nickgaski",
@@ -81,8 +82,7 @@ experts = [
   "tkuhrt",
   "xcr",
   "yacovm",
-  "zac",
-  "kdenhartog"
+  "zac"
 ]
 
 # Which rooms should I respond in. Shell is for testing from command line.
