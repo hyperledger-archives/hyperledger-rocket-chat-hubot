@@ -78,7 +78,7 @@ experts = [
   "lehors",
   "mastersingh24",
   "nickgaski",
-  "ry",
+  "rjones",
   "tkuhrt",
   "xcr",
   "yacovm",
