@@ -72,6 +72,7 @@ experts = [
   "cbf",
   "Dan",
   "dave.enyeart",
+  "guoger",
   "jrosmith",
   "jsmitchell",
   "kdenhartog",
