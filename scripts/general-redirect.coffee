@@ -80,6 +80,7 @@ experts = [
   "mastersingh24",
   "nickgaski",
   "rjones",
+  "sstone1",
   "tkuhrt",
   "xcr",
   "yacovm",
