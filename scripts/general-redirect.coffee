@@ -81,6 +81,7 @@ experts = [
   "nickgaski",
   "rjones",
   "sstone1",
+  "swetha",
   "tkuhrt",
   "xcr",
   "yacovm",
