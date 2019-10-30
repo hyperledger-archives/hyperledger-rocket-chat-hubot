@@ -1,5 +1,9 @@
 # Will send redirect users to a channel based on what it hears.
 
+besuRegEx = [
+  /[^#]besu/i
+]
+
 burrowRegEx = [
   /[^#]burrow/i
 ]
@@ -110,6 +114,14 @@ module.exports = (robot) ->
     msg.room in rooms and
     (msg.user.name not in experts or /TEST HUBOT/.test(msg.text)) and
     regEx.some((rx) -> rx.test(msg.text))
+
+  # Handle #besu
+  robot.listen(
+    (message) -> # Add regular expressions for #besu above
+      respondTo(message, besuQuestionsRegEx)
+    (response) -> # Standard listener callback
+      redirectTo response, "besu"
+  )
 
   # Handle #fabric-questions
   robot.listen(
