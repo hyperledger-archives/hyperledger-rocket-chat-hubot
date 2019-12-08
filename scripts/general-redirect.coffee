@@ -20,15 +20,6 @@ ciPipelineRegEx = [
   /jenkins/i
 ]
 
-composerRegEx = [
-  /bna/i,
-  /business network archive/i,
-  /[^#]composer/i,
-  /createPeerAdminCard/i,
-  /getAssetRegistry/i,
-  /getParticipantRegistry/i
-]
-
 fabricQuestionsRegEx = [
   /byfn/i,
   /chaincode/i,
@@ -169,14 +160,6 @@ module.exports = (robot) ->
       respondTo(message, ciPipelineRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "ci-pipeline"
-  )
-
-  # Handle #composer
-  robot.listen(
-    (message) -> # Add regular expressions for #composer above
-      respondTo(message, composerRegEx)
-    (response) -> # Standard listener callback
-      redirectTo response, "composer"
   )
 
   # Handle #iroha
