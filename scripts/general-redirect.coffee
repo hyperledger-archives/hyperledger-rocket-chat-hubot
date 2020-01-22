@@ -68,6 +68,7 @@ experts = [
   "Dan",
   "dave.enyeart",
   "guoger",
+  "heatherp",
   "jrosmith",
   "jsmitchell",
   "kdenhartog",
