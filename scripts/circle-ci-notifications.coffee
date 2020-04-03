@@ -12,6 +12,10 @@ CIRCLE_NOTIFICATION_PREFIX = 'circle-ci-notify'
 
 module.exports = (robot) ->
   robot.router.post '/hubot/circleci', (req, res) ->
+    if ! /https:\/\/circleci.com\/gh\/hyperledger(-labs)?\/.*/.test(payload.build_url)
+      robot.logger.debug "Not a hyperledger build '#{payload.build_url}'"
+      return res.send "Not a hyperledger build"
+
     payload = req.body.payload
     branch = payload.branch.toLowerCase()
     repo = payload.reponame.toLowerCase()
