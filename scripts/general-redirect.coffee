@@ -1,7 +1,16 @@
 # Will send redirect users to a channel based on what it hears.
 
 besuRegEx = [
-  /[^#]besu/i
+  /ETH/,
+  /ETC/,
+  /[^#]besu/i,
+  /ethereum classic/i,
+  /goerli/i,
+  /kotti/i,
+  /mainnet/i,
+  /mordor/i,
+  /rinkeby/i,
+  /ropsten/i
 ]
 
 burrowRegEx = [
@@ -76,6 +85,7 @@ experts = [
   "mastersingh24",
   "nickgaski",
   "rjones",
+  "shemnon",
   "sstone1",
   "swetha",
   "tkuhrt",
@@ -185,4 +195,12 @@ module.exports = (robot) ->
       respondTo(message, indyRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "indy"
+  )
+
+  # Handle #besu
+  robot.listen(
+    (message) -> # Add regular expressions for #besu above
+      respondTo(message, besuRegEx)
+    (response) -> # Standard listener callback
+      redirectTo response, "besu"
   )
