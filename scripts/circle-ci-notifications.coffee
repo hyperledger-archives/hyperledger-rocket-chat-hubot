@@ -31,10 +31,10 @@ module.exports = (robot) ->
     robot.brain.set(brainKey, currentResult)
 
     if currentResult != "SUCCESS"
-      message = "#{jobName} for #{repo} - #{branch} : #{currentResult}. See more at `#{payload.build_url}`"
+      message = "#{jobName} for #{repo} - #{branch} : #{currentResult}. See more: [#{payload.build_url}](#{payload.build_url})"
       robot.send {room: watchers[repo].channel}, message
       res.send 'Users alerted of build status.'
-    else if lastResult? and lastResult != currentResult and currentResult == "SUCESS"
+    else if lastResult? and lastResult != currentResult and currentResult == "SUCCESS"
       message = "#{jobName} for #{repo} - #{branch} has recovered"
       robot.send {room: watchers[repo].channel}, message
       res.send 'Users alerted of build status.'
