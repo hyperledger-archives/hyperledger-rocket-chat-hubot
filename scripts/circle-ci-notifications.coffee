@@ -2,7 +2,7 @@ watchers = {
   "besu": {
     channel: "besu-contributors"
     regexes: [
-      /^master$/
+      /^master/
       /^release-.*/
     ]
   }
