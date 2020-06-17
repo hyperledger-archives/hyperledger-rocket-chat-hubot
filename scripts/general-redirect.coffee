@@ -25,10 +25,6 @@ celloRegEx = [
   /[^#]cello/i
 ]
 
-ciPipelineRegEx = [
-  /jenkins/i
-]
-
 fabricQuestionsRegEx = [
   /byfn/i,
   /chaincode/i,
@@ -171,14 +167,6 @@ module.exports = (robot) ->
       respondTo(message, caliperRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "caliper"
-  )
-
-  # Handle #ci-pipeline
-  robot.listen(
-    (message) -> # Add regular expressions for #ci-pipeline above
-      respondTo(message, ciPipelineRegEx)
-    (response) -> # Standard listener callback
-      redirectTo response, "ci-pipeline"
   )
 
   # Handle #iroha
