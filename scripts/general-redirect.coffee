@@ -74,6 +74,7 @@ experts = [
   "dave.enyeart",
   "dbluhm",
   "faraggi",
+  "GabielFemi",
   "guoger",
   "hartm",
   "heatherp",
