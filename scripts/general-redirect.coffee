@@ -25,7 +25,7 @@ celloRegEx = [
   /[^#]cello/i
 ]
 
-fabricQuestionsRegEx = [
+fabricRegEx = [
   /byfn/i,
   /chaincode/i,
   /configtx/i,
@@ -122,18 +122,10 @@ module.exports = (robot) ->
     (msg.user.name not in experts or /TEST HUBOT/.test(msg.text)) and
     regEx.some((rx) -> rx.test(msg.text))
 
-  # Handle #besu
-  robot.listen(
-    (message) -> # Add regular expressions for #besu above
-      respondTo(message, besuQuestionsRegEx)
-    (response) -> # Standard listener callback
-      redirectTo response, "besu"
-  )
-
   # Handle #fabric-questions
   robot.listen(
     (message) -> # Add regular expressions for #fabric-questions above
-      respondTo(message, fabricQuestionsRegEx)
+      respondTo(message, fabricRegEx)
     (response) -> # Standard listener callback
       redirectTo response, "fabric-questions"
   )
