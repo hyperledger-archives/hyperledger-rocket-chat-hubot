@@ -9,10 +9,10 @@
     "hubot-diagnostics": "0.0.2",
     "hubot-help": "^0.2.2",
     "hubot-heroku-keepalive": "^1.0.3",
-    "hubot-rocketchat": "2.0.0",
+    "hubot-rocketchat": "git+https://github.com/DeviaVir/hubot-rocketchat.git",
     "hubot-scripts": "^2.17.2"
   },
   "engines": {
-    "node": "v15.7.0"
+    "node": ">=v15.7.0"
   }
 }
