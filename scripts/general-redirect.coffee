@@ -82,6 +82,7 @@ experts = [
   "jsmitchell",
   "kdenhartog",
   "lehors",
+  "lynn.bendixsen",
   "MALodder",
   "mastersingh24",
   "nickgaski",
