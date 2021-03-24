@@ -5,7 +5,7 @@
   "author": "Tracy Kuhrt <tkuhrt@linuxfoundation.org>",
   "description": "A bot to answer simple questions within Hyperledger's Rocket.Chat",
   "dependencies": {
-    "hubot": "^2.19.0",
+    "hubot": ">=3",
     "hubot-diagnostics": "0.0.2",
     "hubot-help": "^0.2.2",
     "hubot-heroku-keepalive": "^1.0.3",
